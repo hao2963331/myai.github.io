@@ -1,0 +1,16 @@
+[theme]
+
+# Primary color of the app.
+base="dark"
+
+# Background color of the app.
+background="#1E1E1E"
+
+# Font settings.
+font="sans serif"
+
+
+[memory]
+# Configuration for memory settings.
+enable=true
+max_size=1024
