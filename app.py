@@ -1,13 +1,17 @@
-import streamlit as st
+# Assuming the file is a Python Flask app
 
-# Title of the Streamlit app
-st.title("Welcome to My Streamlit App!")
+from flask import Flask, request, render_template
 
-# Input field to get the user's name
-name = st.text_input("Enter your name:")
+app = Flask(__name__)
 
-# Display greeting message based on user input
-if name:
-    st.write(f"Hello, {name}! Welcome to the app.")
-else:
-    st.write("Please enter your name to receive a greeting.")
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        name = request.form['name']
+        command = request.form['command']
+        # Process the command here
+        return render_template('index.html', name=name, command=command, hide_name=True)
+    return render_template('index.html', hide_name=False)
+
+if __name__ == '__main__':
+    app.run(debug=True)
